@@ -26,16 +26,17 @@
     alert(number); //사용자에게 메세지를 알릴때
     const yesOrNo = confirm('맞나요?'); //사용자에게 의사를 물어볼 때, 확인을 누르면 true, 취소를 누르면 false
   
-
-    document.querySelector('input').addEventListener('input', function(){
-        console.log('글자 입력');
-    }); 
-    document.querySelector('button').addEventListener('click', function(){
-        console.log('버튼 클릭');
-    }); 
-
     //const $button = document.querySelector('button'); //button 태그 선택하기
     //const $$buttons = document.querySelectorAll('button'); //button 태그 모두 선택
+
+    document.querySelector('input').addEventListener('input', function(event){
+        console.log('글자 입력', event.target.value); //입력한 값이 들어있음
+    }); //글자를 입력했는지 이벤트 감지
+    document.querySelector('button').addEventListener('click', function(){
+        console.log('버튼 클릭');
+    }); //버튼을 클릭했는지 이벤트 감지
+
+    
 
 
 
