@@ -50,8 +50,10 @@
       //화살표 함수 바로 뒤에 return이 오면 생략 가능
       if(operator){ 
         //비어있지 않다
+        if (!numTwo) {
+            $result.value = '';
+        } //넘버2가 없으면 숫자 지우기
         numTwo += number;
-        //numTwo += event.target.textContent;
         //
       }else{ 
         // 비어있다
@@ -63,7 +65,6 @@
     //함수가 함수를 호출하는 것
    
     document.querySelector('#num-0').addEventListener('click', onClickNumber('0'));
-    //document.querySelector('#num-0').addEventListener('click', onClickNumber);
     document.querySelector('#num-1').addEventListener('click', onClickNumber('1'));
     document.querySelector('#num-2').addEventListener('click', onClickNumber('2'));
     document.querySelector('#num-3').addEventListener('click', onClickNumber('3'));
@@ -83,14 +84,45 @@
       }else{
         alert('숫자를 먼저 입력하세요');
       }
-    }
-    document.querySelector('#plus').addEventListener('click', () => {});
-    document.querySelector('#minus').addEventListener('click', () => {});
+    } //고차함수
+    document.querySelector('#plus').addEventListener('click', onClickOperator('+'));
+    document.querySelector('#minus').addEventListener('click', onClickOperator('-'));
    
-    document.querySelector('#divide').addEventListener('click', () => {});
-    document.querySelector('#multiply').addEventListener('click', () => {});
-    document.querySelector('#calculate').addEventListener('click', () => {});
-    document.querySelector('#clear').addEventListener('click', () => {});
+    document.querySelector('#divide').addEventListener('click', onClickOperator('/'));
+    document.querySelector('#multiply').addEventListener('click', onClickOperator('*'));
+    
+    //결과 값
+    document.querySelector('#calculate').addEventListener('click', () => {
+        if (numTwo) {
+            switch (operator) {
+            case '+':
+                $result.value = parseInt(numOne) + parseInt(numTwo);
+                break;
+            case '-':
+                $result.value = numOne - numTwo;
+                break;
+            case '*':
+                $result.value = numOne * numTwo;
+                break;
+            case '/':
+                $result.value = numOne / numTwo;
+                break;
+            default:
+                break;
+            }
+        } else {
+            alert('숫자를 먼저 입력하세요.');
+        }
+    });
+
+    // 초기화
+    document.querySelector('#clear').addEventListener('click', () => {
+        numOne = '';
+        operator = '';
+        numTwo = '';
+        $operator.value = '';
+        $result.value = '';
+    });
   
   </script>
 </body>
