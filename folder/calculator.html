@@ -117,19 +117,20 @@
     
     document.querySelector('#calculate').addEventListener('click', () => { // =을 눌렀을때
         if (numTwo) { //numTwo가 있고
-            if(operator ==='+'){
+            if(operator ==='+'){//'+'눌렀을때
               $result.value = parseInt(numOne) + parseInt(numTwo); //+연산자는 문자열 숫자열 구분 못함
-            }else if(operator === '-'){
+            }else if(operator === '-'){//'-눌렀을때
               $result.value = numOne - numTwo;
-            }else if(operator === '*'){
+            }else if(operator === '*'){//'*눌렀을때
               $result.value = numOne * numTwo;
-            }else if(operator === '/'){
+            }else if(operator === '/'){//'/눌렀을때
               $result.value = numOne / numTwo;
             }
-          $operator.value = '';
-          numOne = $result.value;
-          operator = '';
-          numTwo = '';
+          // numTwo가 있을때 '='을 누르면
+          $operator.value = '';// 연산자 비우기
+          numOne = $result.value;// numOne에는 결과값 
+          operator = '';// 연산자 변수 담을 준비
+          numTwo = '';//numTwo 변수 담을 준비
         } else {
             alert('숫자를 먼저 입력하세요.');
         }
