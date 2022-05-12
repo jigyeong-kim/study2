@@ -92,23 +92,39 @@
     document.querySelector('#multiply').addEventListener('click', onClickOperator('*'));
     
     //결과 값
+//     document.querySelector('#calculate').addEventListener('click', () => { // =을 눌렀을때
+//         if (numTwo) { //numTwo가 있고
+//             switch (operator) { //연산자가 
+//             case '+':
+//                 $result.value = parseInt(numOne) + parseInt(numTwo); //+연산자는 문자열 숫자열 구분 못함
+//                 break;
+//             case '-':
+//                 $result.value = numOne - numTwo;
+//                 break;
+//             case '*':
+//                 $result.value = numOne * numTwo;
+//                 break;
+//             case '/':
+//                 $result.value = numOne / numTwo;
+//                 break;
+//             default:
+//                 break;
+//             }
+//         } else {
+//             alert('숫자를 먼저 입력하세요.');
+//         }
+//     });
+    
     document.querySelector('#calculate').addEventListener('click', () => { // =을 눌렀을때
         if (numTwo) { //numTwo가 있고
-            switch (operator) { //연산자가 
-            case '+':
-                $result.value = parseInt(numOne) + parseInt(numTwo); //+연산자는 문자열 숫자열 구분 못함
-                break;
-            case '-':
-                $result.value = numOne - numTwo;
-                break;
-            case '*':
-                $result.value = numOne * numTwo;
-                break;
-            case '/':
-                $result.value = numOne / numTwo;
-                break;
-            default:
-                break;
+            if(operator ==='+'){
+              $result.value = parseInt(numOne) + parseInt(numTwo); //+연산자는 문자열 숫자열 구분 못함
+            }else if(operator === '-'){
+              $result.value = numOne - numTwo;
+            }else if(operator === '*'){
+              $result.value = numOne * numTwo;
+            }else if(operator === '/'){
+              $result.value = numOne / numTwo;
             }
         } else {
             alert('숫자를 먼저 입력하세요.');
